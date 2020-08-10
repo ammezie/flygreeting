@@ -31,7 +31,7 @@ jobs:
             export PATH="$FLYCTL_INSTALL/bin:$PATH"
       - run:
           name: Deploy app to flyctl
-          command: "which flyctl"
+          command: which flyctl
 
 workflows:
   main:
