@@ -15,6 +15,12 @@ jobs:
       - go/save-cache
       - go/test
       - setup_remote_docker
+      - run:
+          name: Install flyctl
+          command: curl -L https://fly.io/install.sh | sh
+      - run:
+          name: Deploy app to flyctl
+          command: /home/circleci/.fly/bin/flyctl deploy
 
   deploy:
     executor:
@@ -39,4 +45,4 @@ workflows:
   main:
     jobs:
       - build
-      - deploy
+      # - deploy
