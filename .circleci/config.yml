@@ -27,6 +27,7 @@ jobs:
       - run:
           name: Set flyctl paths
           command: export FLYCTL_INSTALL="/home/circleci/.fly"
+      - run:
           name: Set flyctl path
           command: export PATH="$FLYCTL_INSTALL/bin:$PATH"
       - run:
