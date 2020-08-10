@@ -15,12 +15,16 @@ jobs:
       - go/save-cache
       - go/test
       - setup_remote_docker
+
+      - run:
+          docker build -t ammezie/flygreeting .
+
       - run:
           name: Install flyctl
           command: curl -L https://fly.io/install.sh | sh
       - run:
           name: Deploy app to flyctl
-          command: /home/circleci/.fly/bin/flyctl deploy
+          command: /home/circleci/.fly/bin/flyctl deploy -i ammezie/flygreeting
 
   deploy:
     executor:
