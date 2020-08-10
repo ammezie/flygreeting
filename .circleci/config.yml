@@ -32,7 +32,7 @@ jobs:
           command: export PATH="$FLYCTL_INSTALL/bin:$PATH"
       - run:
           name: Deploy app to flyctl
-          command: flyctl deploy
+          command: /home/circleci/.fly/bin/flyctl deploy
 
 workflows:
   main:
