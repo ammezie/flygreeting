@@ -26,12 +26,11 @@ jobs:
           command: curl -L https://fly.io/install.sh | sh
       - run:
           name: Set flyctl paths
-          command: |
-            export FLYCTL_INSTALL="/home/circleci/.fly"
-            export PATH="$FLYCTL_INSTALL/bin:$PATH"
+          command: export FLYCTL_INSTALL="/home/circleci/.fly"
+          command: export PATH="$FLYCTL_INSTALL/bin:$PATH"
       - run:
           name: Deploy app to flyctl
-          command: which flyctl
+          command: flyctl deploy
 
 workflows:
   main:
