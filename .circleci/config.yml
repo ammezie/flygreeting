@@ -20,16 +20,16 @@ jobs:
       name: go/default
       tag: '1.14'
     steps:
-      - checkout
+      # - checkout
       - run:
           name: Install flyctl
           command: curl -L https://fly.io/install.sh | sh
-      - run:
-          name: Set flyctl paths
-          command: export FLYCTL_INSTALL="/home/circleci/.fly"
-      - run:
-          name: Set flyctl path
-          command: export PATH="$FLYCTL_INSTALL/bin:$PATH"
+      # - run:
+      #     name: Set flyctl paths
+      #     command: export FLYCTL_INSTALL="/home/circleci/.fly"
+      # - run:
+      #     name: Set flyctl path
+      #     command: export PATH="$FLYCTL_INSTALL/bin:$PATH"
       - run:
           name: Deploy app to flyctl
           command: /home/circleci/.fly/bin/flyctl deploy
@@ -37,5 +37,5 @@ jobs:
 workflows:
   main:
     jobs:
-      # - build
+      - build
       - deploy
